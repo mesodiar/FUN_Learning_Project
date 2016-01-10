@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><b>Report Detail</b></div>
+      <table class="table">
+        <tr>
+            <td> Report ID</td>
+            <td> Report Name </a></td>
+            <td> Updated date </td>
+        </tr>
+          <tr>
+              <td> {{ detail.id }} </td>
+              <td> {{ detail.name }} </a></td>
+              <td> {{ detail.updated_date }} </td>
+          </tr>
+      </table>
+      <div class="panel-heading"><b>Stage 1</b></div>
+      {% for item in stage1_obj %}
+      &nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span><br>
+      {% endfor %}
+
+      <div class="panel-heading"><b>Stage 2</b></div>
+      {% for item in stage2_obj %}
+      &nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span><br>
+      {% endfor %}
+
+      <div class="panel-heading"><b>Stage 3</b></div>
+      {% for item in stage3_obj %}
+      &nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span><br>
+      {% endfor %}
+    </div>
+        <a href="{% url 'report.views.report_list' %}"><button type="button" class="btn btn-info">Back</button></a>
+        <a href="{% url 'report.views.page_stage1' pk=detail.pk %}"><button type="button" class="btn btn-success">GO</button></a>
+  </body>
+</html>
