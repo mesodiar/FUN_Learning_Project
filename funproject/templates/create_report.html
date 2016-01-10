@@ -9,8 +9,9 @@
       {% csrf_token %}
       <div class="panel panel-default">
         <div class="panel-heading">Report name: <input type="text" name="report_name"></div>
+        <div class="panel-heading"><input type="checkbox" name="check_default">&nbsp; Set as Default</div>
 
-        <!-- Default panel contents 1-->
+        <!--  contents 1-->
         <div class="panel-heading">Stage 1</div>
             <div id="stage_1_original">
               Item: <input type="text" id ="stage_1" name="stage1">
@@ -18,7 +19,7 @@
             <button type="button" id="add_stage_1" class="btn btn-default navbar-btn">
             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             </button>
-        <!-- Default panel content 2-->
+        <!-- content 2-->
         <div class="panel-heading">Stage 2</div>
             <div id="stage_2_original">
               Item: <input type="text" id="stage_2" name="stage2">
@@ -26,7 +27,7 @@
             <button type="button" id="add_stage_2" class="btn btn-default navbar-btn">
             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             </button>
-        <!-- Default panel content 3-->
+        <!-- content 3-->
         <div class="panel-heading">Stage 3</div>
             <div id="stage_3_original">
               Item: <input type="text" id="stage_3" name="stage3">

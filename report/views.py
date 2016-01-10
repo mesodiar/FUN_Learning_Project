@@ -45,6 +45,19 @@ def create_report(request):
                     item_obj = Items(name=item, stage=3, report_id=report_obj)
                     item_obj.save()
 
+            if request.POST["check_default"]:
+
+                Items.objects.bulk_create([
+                    Items(name="Do I know what topic I would like to write?", stage=1, report_id=report_obj),
+                    Items(name="Do I have enough information to write?", stage=1, report_id=report_obj),
+                    Items(name="Does the report have the title?", stage=2, report_id=report_obj),
+                    Items(name="Does the report have the table of content?", stage=2, report_id=report_obj),
+                    Items(name="Does the report have the content?", stage=2, report_id=report_obj),
+                    Items(name="Does the report have the references?", stage=2, report_id=report_obj),
+                    Items(name="Do I send an email to my lecturer that I complete the report?",stage=3, report_id=report_obj),
+                    Items(name="Do I post it on my Facebook?", stage=3, report_id=report_obj),
+                ])
+
             return HttpResponseRedirect(reverse('report.views.create_report')) #redirect after POST
     else:
         form = ReportForm()
