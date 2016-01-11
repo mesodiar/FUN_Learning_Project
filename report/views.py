@@ -114,10 +114,14 @@ def page_stage2(request, pk):
 def page_stage3(request, pk):
     if request.method == "POST":
         items_pk = request.POST.getlist('check')
-        for item_pk in items_ok:
-            items_obj = get_object_or_404(Items, pk=item_pk)
+        for item_pk in items_pk:
+            item_obj = get_object_or_404(Items, pk=item_pk)
             item_obj.status = True
             item_obj.save()
+        items_obj = Items.objects.filter(stage=3,report_id=pk)
+        if all(item.status == 1 for item in items_obj ) == True:
+            return HttpResponseRedirect(reverse("report.views.report_list"))
+
     report_obj = get_object_or_404(Report, pk=pk)
     stage3 = Items.objects.filter(stage=3,report_id=report_obj)
     return render(request, 'stage3.html', {'stage3': stage3, 'report_obj': report_obj},)
