@@ -13,7 +13,7 @@
             <a class="navbar-brand" href="#">Fun Learning Project</a>
           </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="{% url 'report.views.report_list' %}">Home</a></li>
           </ul>
           <div align="right">
             <a href="{% url 'django.contrib.auth.views.logout' %}?next=/users/login"><button type="button" class="btn btn-default">Logout</button></a>

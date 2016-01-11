@@ -1,9 +1,6 @@
-<html>
-    <head>
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    </head>
-    <body>
+{% extends "base_authen.html" %}
+    {% block title %}{% endblock %}
+    {% block content %}
       <form action="{% url 'report.views.add_item' report_id=report_obj.pk %}" method="post">
         {% csrf_token %}
         <div class="panel panel-default">
@@ -22,7 +19,6 @@
                 {% endfor %}
                 Item: <input type="text"  name="item_stage1_name">
                 <button type="submit" class="btn btn-danger">Add</button>
-
 
               <div class="panel-heading"><b>Stage 2</b></div>
                 {% for item in stage2_obj %}
@@ -51,7 +47,5 @@
                 {% endfor %}
                 Item: <input type="text"  name="item_stage3_name">
                 <button type="submit" class="btn btn-danger">Add</button>
-        <a href="{% url 'report.views.report_list' %}"><button type="button" class="btn btn-info">Back</button></a>
       </form>
-    </body>
-</html>
+    {% endblock %}
