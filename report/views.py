@@ -5,6 +5,8 @@ from report.forms import ReportForm, Item1Form, Item2Form, Item3Form, UserCreati
 from report.models import Report
 from items.models import Items
 from django.template import RequestContext
+from django.contrib.auth.views import logout
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -19,6 +21,7 @@ def register(request):
         'form': form,
     })
 
+@login_required(login_url="/users/login/")
 def report_list(request):
     reports = Report.objects.filter(user_id=request.user)
     return render(request, 'report_list.html', {'reports': reports})

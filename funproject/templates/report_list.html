@@ -6,12 +6,17 @@
   <body>
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading"><b>Report List</b></div>
+      <div class="panel-heading">
+          <b>Report List</b>
+          <div align="right">
+            <a href="{% url 'django.contrib.auth.views.logout' %}?next=/users/login"><button type="button" class="btn btn-default">Logout</button></a>
+          </div>
+      </div>
       <div class="panel-body">
         <p>Create Report..
           <a href="{% url 'report.views.create_report' %}">
             <button type="button" class="btn btn-default navbar-btn">
-            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             </button>
           </a>
         </p>

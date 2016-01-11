@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^edit/(?P<pk>[0-9]+)/$', views.edit_report, name = 'edit_report'),
     url(r'^(?P<report_id>[0-9]+)/delete/(?P<item_id>[0-9]+)/$', views.delete_item, name = 'delete_item'),
     url(r'^(?P<report_id>[0-9]+)/add/$', views.add_item, name = 'add_item'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout')
 
 ]
