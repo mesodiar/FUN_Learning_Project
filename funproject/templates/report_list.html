@@ -1,27 +1,22 @@
-<html>
-  <head>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  </head>
-  <body>
+{% extends "base_authen.html" %}
+    {% block title %}{% endblock %}
+    {% block content %}
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading">
-          <b>Report List</b>
-          <div align="right">
-            <a href="{% url 'django.contrib.auth.views.logout' %}?next=/users/login"><button type="button" class="btn btn-default">Logout</button></a>
-          </div>
-      </div>
-      <div class="panel-body">
-        <p>Create Report..
-          <a href="{% url 'report.views.create_report' %}">
-            <button type="button" class="btn btn-default navbar-btn">
-              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-            </button>
-          </a>
-        </p>
+        <b>Report List</b>
       </div>
 
+      <div class="panel-body">
+        <div align="center">
+            <a href="{% url 'report.views.create_report' %}">
+              <button type="button" class="btn btn-default navbar-btn">
+                Add Report
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </button>
+            </a>
+        </div>
+      </div>
       <!-- Table -->
       <table class="table">
         <tr>
@@ -41,5 +36,4 @@
 
       </table>
     </div>
-  </body>
-</html>
+    {% endblock %}
