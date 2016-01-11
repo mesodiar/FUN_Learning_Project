@@ -9,33 +9,34 @@
       {% csrf_token %}
       <div class="panel panel-default">
         <div class="panel-heading">Report name: <input type="text" name="report_name"></div>
-        <div class="panel-heading"><input type="checkbox" name="check_default">&nbsp; Set as Default</div>
+        <div class="panel-heading" id="default"><input type="checkbox" name="check_default">&nbsp; Set as Default</div>
 
-        <!--  contents 1-->
-        <div class="panel-heading">Stage 1</div>
-            <div id="stage_1_original">
-              Item: <input type="text" id ="stage_1" name="stage1">
-            </div>
-            <button type="button" id="add_stage_1" class="btn btn-default navbar-btn">
-            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-            </button>
-        <!-- content 2-->
-        <div class="panel-heading">Stage 2</div>
-            <div id="stage_2_original">
-              Item: <input type="text" id="stage_2" name="stage2">
-            </div>
-            <button type="button" id="add_stage_2" class="btn btn-default navbar-btn">
-            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-            </button>
-        <!-- content 3-->
-        <div class="panel-heading">Stage 3</div>
-            <div id="stage_3_original">
-              Item: <input type="text" id="stage_3" name="stage3">
-            </div>
-            <button type="button" id="add_stage_3" class="btn btn-default navbar-btn">
-            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-            </button>
-
+        <div id="content">
+          <!--  contents 1-->
+          <div class="panel-heading">Stage 1</div>
+              <div id="stage_1_original">
+                Item: <input type="text" id ="stage_1" name="stage1">
+              </div>
+              <button type="button" id="add_stage_1" class="btn btn-default navbar-btn">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </button>
+          <!-- content 2-->
+          <div class="panel-heading">Stage 2</div>
+              <div id="stage_2_original">
+                Item: <input type="text" id="stage_2" name="stage2">
+              </div>
+              <button type="button" id="add_stage_2" class="btn btn-default navbar-btn">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </button>
+          <!-- content 3-->
+          <div class="panel-heading">Stage 3</div>
+              <div id="stage_3_original">
+                Item: <input type="text" id="stage_3" name="stage3">
+              </div>
+              <button type="button" id="add_stage_3" class="btn btn-default navbar-btn">
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+              </button>
+        </div>
       </div>
       <button type="submit" value="Submit" class="btn btn-info">Submit</button>
       <a href="{% url 'report.views.report_list' %}"><button type="button" class="btn btn-info">Back</button></a>
@@ -54,6 +55,9 @@
         $('#add_stage_3').click( function(){
           $("#stage_3_original").clone().insertBefore("#add_stage_3");
           $("input#stage_3").last().val('');
+        });
+        $('#default').click( function(){
+          $("#content").hide();
         });
 
     });

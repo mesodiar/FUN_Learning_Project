@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+import report
 
 urlpatterns = patterns('',
     url(r'^admin/', admin.site.urls),
     url(r'^users/login/$', 'django.contrib.auth.views.login',{'template_name': 'login.html'}),
     url(r'^report/', include('report.urls')),
+    url(r'^register/', 'report.views.register' )
 )

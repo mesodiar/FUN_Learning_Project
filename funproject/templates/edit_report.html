@@ -9,49 +9,48 @@
         <div class="panel panel-default">
           <!-- Default panel contents -->
           <div class="panel-heading"><b>Report: {{ report_obj.name }}</b></div>
-          <div class="panel-heading"><b>Stage 1</b></div>
-            {% for item in stage1_obj %}
-              <table class="fixed">
-                <col width="200px"/>
-                <col width="20px"/>
-                <tr>
-                  <td><span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
-                  <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
-                </tr>
-              </table>
-            {% endfor %}
-            Item: <input type="text"  name="item_stage1_name">
-            <button type="submit" class="btn btn-danger">Add</button>
+              <div class="panel-heading"><b>Stage 1</b></div>
+                {% for item in stage1_obj %}
+                  <table class="fixed">
+                    <col width="500px"/>
+                    <col width="20px"/>
+                    <tr>
+                      <td><span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
+                      <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
+                    </tr>
+                  </table>
+                {% endfor %}
+                Item: <input type="text"  name="item_stage1_name">
+                <button type="submit" class="btn btn-danger">Add</button>
 
 
-          <div class="panel-heading"><b>Stage 2</b></div>
-            {% for item in stage2_obj %}
-              <table class="fixed">
-                <col width="200px"/>
-                <col width="20px"/>
-                <tr>
-                  <td>&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
-                  <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
-                </tr>
-              </table>
-            {% endfor %}
-            Item: <input type="text"  name="item_stage2_name">
-            <button type="submit" class="btn btn-danger">Add</button>
+              <div class="panel-heading"><b>Stage 2</b></div>
+                {% for item in stage2_obj %}
+                  <table class="fixed">
+                    <col width="500px"/>
+                    <col width="20px"/>
+                    <tr>
+                      <td>&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
+                      <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
+                    </tr>
+                  </table>
+                {% endfor %}
+                Item: <input type="text"  name="item_stage2_name">
+                <button type="submit" class="btn btn-danger">Add</button>
 
-          <div class="panel-heading"><b>Stage 3</b></div>
-            {% for item in stage3_obj %}
-              <table class="fixed">
-                <col width="200px"/>
-                <col width="20px"/>
-                  <tr>
-                    <td>&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
-                    <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
-                  </tr>
-              </table>
-            {% endfor %}
-            Item: <input type="text"  name="item_stage3_name">
-            <button type="submit" class="btn btn-danger">Add</button>
-        </div>
+              <div class="panel-heading"><b>Stage 3</b></div>
+                {% for item in stage3_obj %}
+                  <table class="fixed">
+                    <col width="500px"/>
+                    <col width="20px"/>
+                      <tr>
+                        <td>&nbsp;&nbsp;<span class="glyphicon glyphicon-pushpin" aria-hidden="true">&nbsp;{{ item.name }}</span></td>
+                        <td><a href="{% url 'report.views.delete_item' report_id=report_obj.pk item_id=item.pk %}"><button class="btn btn-warning">Remove</button></a></td>
+                      </tr>
+                  </table>
+                {% endfor %}
+                Item: <input type="text"  name="item_stage3_name">
+                <button type="submit" class="btn btn-danger">Add</button>
         <a href="{% url 'report.views.report_list' %}"><button type="button" class="btn btn-info">Back</button></a>
       </form>
     </body>

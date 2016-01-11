@@ -74,6 +74,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'funproject.wsgi.application'
 
+LOGIN_URL = '/report'
+
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

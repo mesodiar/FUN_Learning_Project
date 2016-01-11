@@ -1,10 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from report.forms import ReportForm, Item1Form, Item2Form, Item3Form
+from report.forms import ReportForm, Item1Form, Item2Form, Item3Form, UserCreationForm
 from report.models import Report
 from items.models import Items
+from django.template import RequestContext
 
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect(reverse('django.contrib.auth.views.login'))
+    else:
+        form = UserCreationForm()
+    return render(request, "registration/register.html", {
+        'form': form,
+    })
 
 def report_list(request):
     reports = Report.objects.filter(user_id=request.user)
