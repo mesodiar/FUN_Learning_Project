@@ -22,14 +22,14 @@
         <tr>
             <td><b> # </b></td>
             <td><b> Name </b></td>
-            <td><b> Date </b></td>
+            <td><b> Created Date </b></td>
             <td></td>
         </tr>
         {% for report in reports %}
           <tr>
               <td><a href="{% url 'report.views.detail_report' pk=report.pk %}">  {{ report.id }} </a></td>
               <td><a href="{% url 'report.views.detail_report' pk=report.pk %}">  {{ report.name }} </a></td>
-              <td> {{ report.updated_date }} </td>
+              <td> {{ report.created_date }} </td>
               <td><a href="{% url 'report.views.edit_report' pk=report.pk %}"><button type="button" class="btn btn-default navbar-btn">Edit</button></a></td>
           </tr>
         {% endfor %}
