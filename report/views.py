@@ -37,7 +37,6 @@ def create_report(request):
     if request.method == 'POST':
 
         form = ReportForm(request.POST)
-        print "hello"
         if form.is_valid(): #check rules in forms.py
             report_name = request.POST.get('report_name') #from html
             report_obj = Report(name=report_name) #get data into Report Model
