@@ -37,11 +37,13 @@ def create_report(request):
     if request.method == 'POST':
 
         form = ReportForm(request.POST)
+        print "hello"
         if form.is_valid(): #check rules in forms.py
             report_name = request.POST.get('report_name') #from html
             report_obj = Report(name=report_name) #get data into Report Model
             report_obj.user_id = request.user #from user that login
             report_obj.save() #save data intp database
+
 
             item_stage1_name = request.POST.getlist('stage1')
             for item in item_stage1_name:
@@ -61,8 +63,7 @@ def create_report(request):
                     item_obj = Items(name=item, stage=3, report_id=report_obj)
                     item_obj.save()
 
-            if request.POST["check_default"]:
-
+            if request.POST.get("check_default",False):
                 Items.objects.bulk_create([
                     Items(name="Do I know what topic I would like to write?", stage=1, report_id=report_obj),
                     Items(name="Do I have enough information to write?", stage=1, report_id=report_obj),

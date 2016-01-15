@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class ReportForm(forms.Form):
     report_name = forms.CharField()
-    check_default = forms.BooleanField()
+    check_default = forms.BooleanField(required=False)
 class Item1Form(forms.Form):
     item_stage1_name = forms.CharField()
 
