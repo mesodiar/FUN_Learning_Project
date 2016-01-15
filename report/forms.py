@@ -16,11 +16,7 @@ class Item3Form(forms.Form):
     item_stage3_name = forms.CharField(required=True)
 
 class UserCreateForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-
-    class Meta:
-        model = User
-        fields = ("username", "email", "password1", "password2")
+    email = forms.CharField(required=True)
 
     def save(self, commit=True):
         user = super(UserCreateForm, self).save(commit=False)
